@@ -1,29 +1,19 @@
-# Copyright 2021 Google LLC
+# This file specifies files that are *not* uploaded to Google Cloud
+# using gcloud. It follows the same syntax as .gitignore, with the addition of
+# "#!include" directives (which insert the entries of the given .gitignore-style
+# file at that point).
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# For more information, run:
+#   $ gcloud topic gcloudignore
 #
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# The .gcloudignore file excludes file from upload to Cloud Build.
-# If this file is deleted, gcloud will default to .gitignore.
-#
-# https://cloud.google.com/cloud-build/docs/speeding-up-builds#gcloudignore
-# https://cloud.google.com/sdk/gcloud/reference/topic/gcloudignore
-
-# Ignore everything specified in .gitignore
-#!include:.gitignore
-
-# Exclude locally installed dependencies
-venv/
-
-# Exclude git history and configuration.
-.git/
+.gcloudignore
+# If you would like to upload your .git directory, .gitignore file or files
+# from your .gitignore file, remove the corresponding line
+# below:
+.git
 .gitignore
+
+# Python pycache:
+__pycache__/
+# Ignored by the build system
+/setup.cfg

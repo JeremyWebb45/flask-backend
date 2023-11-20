@@ -9,6 +9,13 @@ body {
   max-width: 1280px;
   width: 100%;
   font-family: "Inter";
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  padding: 80px 40px;
 }
 
 button {

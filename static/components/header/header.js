@@ -1,6 +1,7 @@
 class Header extends HTMLElement {
   constructor() {
     super();
+    console.log(this.getAttribute("data-"));
   }
 
   connectedCallback() {

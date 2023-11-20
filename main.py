@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def root():
-    return render_template("about.html")
+    return render_template("about.html", testData={'startState': (0,0), 'goalState': (0,0)})
 
 @app.route("/data-science")
 def dataScience():

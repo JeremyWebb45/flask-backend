@@ -23,6 +23,11 @@
       type="text/javascript"
       defer
     ></script>
+    <script
+      src="static/components/cellular-grid/cellular-grid.js"
+      type="text/javascript"
+      defer
+    ></script>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     <link
       type="text/css"
@@ -46,6 +51,17 @@
   </head>
   <body>
     <header-component></header-component>
-    <main></main>
+    <main>
+      <section>
+        <article>
+          <h1>data science</h1>
+          <p>a little something about data science</p>
+        </article>
+        <article>
+          <h6>path planning</h6>
+          <cellular-grid props="{{testData}}"></cellular-grid>
+        </article>
+      </section>
+    </main>
   </body>
 </html>

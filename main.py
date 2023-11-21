@@ -2,12 +2,17 @@ import datetime
 
 from flask import Flask, render_template
 
+from server import PathPlanning
+
+pathPlanningController = PathPlanning.PathPlanningController()
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def root():
-    return render_template("about.html", testData={'startState': (0,0), 'goalState': (0,0)})
+    initData = pathPlanningController.getInfo()
+    return render_template("about.html", gridData=initData)
 
 @app.route("/data-science")
 def dataScience():

@@ -8,6 +8,11 @@ class CellularGrid extends HTMLElement {
       <div>cellular-grid</div>
       `;
   }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log(`Attribute ${name} has changed.`);
+    console.log(newValue);
+  }
 }
 
-customElements.define("cellular-grid", CellularGrid);
+customElements.define('cellular-grid', CellularGrid);

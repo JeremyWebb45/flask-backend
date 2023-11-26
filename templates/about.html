@@ -21,27 +21,38 @@
     <script
       src="static/components/header/header.js"
       type="text/javascript"
-      defer></script>
+      defer
+    ></script>
     <script
       src="static/components/cellular-grid/cellular-grid.js"
       type="text/javascript"
-      defer></script>
+      defer
+    ></script>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='about.css') }}" />
+      href="{{ url_for('static', filename='about.css') }}"
+    />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='global.css') }}" />
+      href="/static/components/cellular-grid//cellular-grid.css"
+    />
     <link
       type="text/css"
       rel="stylesheet"
-      href="/static/components/header/header.css" />
+      href="{{ url_for('static', filename='global.css') }}"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/static/components/header/header.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Inter"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header-component></header-component>
@@ -53,7 +64,10 @@
         </article>
         <article>
           <h6>path planning</h6>
-          <cellular-grid data-="{{gridData}}"></cellular-grid>
+          <cellular-grid
+            class="gridContainer"
+            data-='{"grid": {{grid}}, "height": {{height}}, "width": {{width}}}'
+          ></cellular-grid>
         </article>
       </section>
     </main>

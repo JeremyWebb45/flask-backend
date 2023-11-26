@@ -11,8 +11,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def root():
-    initData = pathPlanningController.getInfo()
-    return render_template("about.html", gridData=initData)
+    grid = pathPlanningController.getGrid()
+    height = pathPlanningController.getHeight()
+    width = pathPlanningController.getWidth()
+    return render_template("about.html", grid=grid, height=height, width=width)
 
 @app.route("/data-science")
 def dataScience():

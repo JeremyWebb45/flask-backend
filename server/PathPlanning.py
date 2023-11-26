@@ -2,13 +2,15 @@ import numpy as np
 
 class PathPlanningController:
     def __init__(self):
-        self.startState = (0,0);
-        self.goalState = (0,1);
-        self.grid = np.zeros((700,500))
+        self.height = 100;
+        self.width = 100;
+        self.grid = np.zeros((self.width, self.height)).tolist()
     
-    def getInfo(self):
-        return {
-            "startState": self.startState,
-            "goalState": self.goalState,
-            "grid": self.grid.tolist()
-        }
+    def getGrid(self):
+        return self.grid
+    
+    def getHeight(self):
+        return self.height
+    
+    def getWidth(self):
+        return self.width

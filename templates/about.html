@@ -64,10 +64,16 @@
         </article>
         <article>
           <h6>path planning</h6>
-          <cellular-grid
-            class="gridContainer"
-            data-='{"grid": {{grid}}, "height": {{height}}, "width": {{width}}}'
-          ></cellular-grid>
+          <table id="gridContainer">
+            <tbody id="gridBody">
+              {% for x in grid %}
+              <td>{{x}}</td>
+              {% endfor %}
+              <!-- <cellular-grid
+                data-='{"grid": {{grid}}, "height": {{height}}, "width": {{width}}}'
+              ></cellular-grid> -->
+            </tbody>
+          </table>
         </article>
       </section>
     </main>

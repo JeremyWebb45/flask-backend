@@ -21,38 +21,31 @@
     <script
       src="static/components/header/header.js"
       type="text/javascript"
-      defer
-    ></script>
+      defer></script>
     <script
       src="static/components/cellular-grid/cellular-grid.js"
       type="text/javascript"
-      defer
-    ></script>
+      defer></script>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='about.css') }}"
-    />
+      href="{{ url_for('static', filename='about.css') }}" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="/static/components/cellular-grid//cellular-grid.css"
-    />
+      href="/static/components/cellular-grid//cellular-grid.css" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='global.css') }}"
-    />
+      href="{{ url_for('static', filename='global.css') }}" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="/static/components/header/header.css"
-    />
+      href="/static/components/header/header.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Inter"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <body>
     <header-component></header-component>
@@ -64,16 +57,50 @@
         </article>
         <article>
           <h6>path planning</h6>
-          <table id="gridContainer">
-            <tbody id="gridBody">
-              {% for x in grid %}
-              <td>{{x}}</td>
-              {% endfor %}
-              <!-- <cellular-grid
-                data-='{"grid": {{grid}}, "height": {{height}}, "width": {{width}}}'
-              ></cellular-grid> -->
-            </tbody>
-          </table>
+          <div id="gridContainer">
+            <table>
+              <tbody id="gridBody">
+                {% for row in grid %}
+                <tr>
+                  {% for data in row %}
+                  <td></td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div class="gridData">
+              <p>
+                Grid state: <br />
+                <b id="gridState">selecting start state</b>
+              </p>
+              <p>
+                Start state: <br />
+                <b id="startSelection">unselected</b>
+              </p>
+              <p>
+                Goal state: <br />
+                <b id="goalSelection">unselected</b>
+              </p>
+              <div class="sliderContainer">
+                <p>Obstacle density:</p>
+                <div class="sliderContent">
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="30"
+                    class="slider"
+                    id="densitySlider"
+                    disabled />
+                  <p id="densityAmount">30</p>
+                </div>
+              </div>
+              <button id="gridSubmit" disabled>
+                <p>Begin simulation</p>
+              </button>
+            </div>
+          </div>
         </article>
       </section>
     </main>

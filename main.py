@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from server import PathPlanning
 
@@ -15,6 +15,11 @@ def root():
     height = pathPlanningController.getHeight()
     width = pathPlanningController.getWidth()
     return render_template("about.html", grid=grid, height=height, width=width)
+
+@app.route("/api/path-planning", methods=['GET', 'POST'])
+def pathPlanning():
+    print(request.args.get('body'))
+    return {'message': 'hey'}
 
 @app.route("/data-science")
 def dataScience():

@@ -21,31 +21,38 @@
     <script
       src="static/components/header/header.js"
       type="text/javascript"
-      defer></script>
+      defer
+    ></script>
     <script
       src="static/components/cellular-grid/cellular-grid.js"
       type="text/javascript"
-      defer></script>
+      defer
+    ></script>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='about.css') }}" />
+      href="{{ url_for('static', filename='about.css') }}"
+    />
     <link
       type="text/css"
       rel="stylesheet"
-      href="/static/components/cellular-grid//cellular-grid.css" />
+      href="/static/components/cellular-grid//cellular-grid.css"
+    />
     <link
       type="text/css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='global.css') }}" />
+      href="{{ url_for('static', filename='global.css') }}"
+    />
     <link
       type="text/css"
       rel="stylesheet"
-      href="/static/components/header/header.css" />
+      href="/static/components/header/header.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Inter"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header-component></header-component>
@@ -88,16 +95,18 @@
                   <input
                     type="range"
                     min="0"
-                    max="100"
-                    value="30"
+                    max="1"
+                    step=".01"
+                    value=".5"
                     class="slider"
                     id="densitySlider"
-                    disabled />
-                  <p id="densityAmount">30</p>
+                    disabled
+                  />
+                  <p id="densityAmount">.5</p>
                 </div>
               </div>
               <button id="gridSubmit" disabled>
-                <p>Begin simulation</p>
+                <p>Generate obstacles</p>
               </button>
             </div>
           </div>

@@ -11,14 +11,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def root():
-    grid = pathPlanningController.getGrid()
+    grid = pathPlanningController.getGridForClient()
     height = pathPlanningController.getHeight()
     width = pathPlanningController.getWidth()
     return render_template("about.html", grid=grid, height=height, width=width)
 
-@app.route("/api/path-planning", methods=['GET', 'POST'])
-def pathPlanning():
-    print(request.args.get('body'))
+@app.route("/api/path-planning/get-obstacles", methods=['GET', 'POST'])
+def generateObstacles():
+    obstacles = pathPlanningController.generateObstacles(request.form.get('start'), request.form.get('goal'), request.form.get('density'))
     return {'message': 'hey'}
 
 @app.route("/data-science")

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <table>
+        <tbody id="gridBody">
+            {% for row in grid %}
+            <tr>
+                {% for data in row %}
+                <td class="{{"obstacle" if data == 3 else "startSelected" if data == 1 else "goalSelected" if data == 2}}"></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </body>
+</html>

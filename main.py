@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 from server import PathPlanning
 
@@ -18,8 +18,9 @@ def root():
 
 @app.route("/api/path-planning/get-obstacles", methods=['GET', 'POST'])
 def generateObstacles():
-    obstacles = pathPlanningController.generateObstacles(request.form.get('start'), request.form.get('goal'), request.form.get('density'))
-    return {'message': 'hey'}
+    pathPlanningController.generateObstacles(request.form.get('start'), request.form.get('goal'), request.form.get('density'))
+    grid = pathPlanningController.getGridForClient()
+    return render_template("async-grid.html", grid=grid)
 
 @app.route("/data-science")
 def dataScience():

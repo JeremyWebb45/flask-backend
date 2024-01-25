@@ -25,10 +25,6 @@ class PathPlanningController:
         self.start_state = eval(startState)
         self.goal_state = eval(goalState)
         self.obstacle_density = eval(density)
-        np.put(self.grid, self.start_state, 1)
-        np.put(self.grid, self.goal_state, 2)
-        print(self.grid[np.where(self.grid == 0)].shape, np.random.choice(a=[0, 3], size=((self.width, self.height)), p=[self.obstacle_density, 1 - self.obstacle_density]).shape)
-        self.grid[np.where(self.grid == 0)] = np.random.choice(a=[0, 3], size=((self.width, self.height)), p=[self.obstacle_density, 1 - self.obstacle_density])
-        print(self.grid)
-        print(np.count_nonzero(self.grid == 3))
-        return "<div></div>"
+        self.grid = np.random.binomial(1, self.obstacle_density, self.grid.shape) * 3
+        self.grid[self.start_state[1]][self.start_state[0]] = 1
+        self.grid[self.goal_state[1]][self.goal_state[0]] = 2
